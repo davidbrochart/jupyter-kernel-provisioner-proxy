@@ -8,13 +8,13 @@ A Jupyter kernel [provisioner](https://jupyter-client.readthedocs.io/en/stable/p
 
 Install jupyter-kernel-provisioner-proxy:
 
-```bash
+```console
 pip install jupyter-kernel-provisioner-proxy
 ```
 
 Then install a kernelspec with the `jupyter-kernel-provisioner-proxy install` command.
 
-```bash
+```console
 $ jupyter-kernel-provisioner-proxy install --help
 
  Usage: jupyter-kernel-provisioner-proxy install [OPTIONS]
@@ -36,14 +36,14 @@ You can use [jupyter-server](https://github.com/jupyter-server/jupyter_server) o
 
 #### Using jupyter-server
 
-```bash
+```console
 pip install jupyter-server
 jupyter server --ServerApp.token='' --ServerApp.password='' --ServerApp.disable_check_xsrf=True --no-browser --port=8000
 ```
 
 #### Using jupyverse
 
-```bash
-pip install jupyverse[jupyterlab,noauth]
+```console
+pip install fps-kernels fps-noauth fps-frontend ipykernel
 jupyverse
 ```
