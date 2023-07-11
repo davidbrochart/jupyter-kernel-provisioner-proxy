@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jupyter-kernel-provisioner-proxy"
+dynamic = ["version"]
+description = "Jupyter kernel provisioner proxy"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+authors = [ { name = "David Brochart", email = "david.brochart@gmail.com" }, ]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+keywords = [
+]
+dependencies = [
+  "rich-click >=1.6.1,<2",
+  "httpx >=0.24.1,<1",
+  "httpx-ws >=0.4.0,<1",
+  "jupyter-client",
+  "wsproto",
+  "pyzmq",
+  "python-dateutil",
+]
+
+[project.urls]
+Homepage = "https://github.com/davidbrochart/jupyter-kernel-provisioner-proxy"
+
+[tool.hatch.version]
+path = "jupyter_kernel_provisioner_proxy/__init__.py"
+
+[project.entry-points."jupyter_client.kernel_provisioners"]
+jupyter-kernel-provisioner-proxy = "jupyter_kernel_provisioner_proxy.client:RemoteKernelProvisioner"
+
+[project.scripts]
+jupyter-kernel-provisioner-proxy = "jupyter_kernel_provisioner_proxy.cli:main"
